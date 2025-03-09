@@ -42,14 +42,16 @@ const Navbar: React.FC = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? 'py-2 bg-white/90 backdrop-blur-md shadow-md' 
-          : 'py-4 bg-transparent'
+          : 'py-100 bg-transparent'
       }`}
     >
       <div className="container flex justify-between items-center">
         <div className="flex items-center">
-          <span className="text-medical-dark-blue text-xl md:text-2xl font-bold">
-            DU ENDOSCOPIE
-          </span>
+          <img 
+            src="https://res.cloudinary.com/dm4klydoj/image/upload/v1741523227/logo_fmpr_hafvak.png" 
+            alt="DU ENDOSCOPIE Logo" 
+            className="h-16 w-auto" 
+          />
         </div>
 
         {/* Desktop Navigation */}
