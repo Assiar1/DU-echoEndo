@@ -2,13 +2,13 @@
 import React from 'react';
 
 const partners = [
-  { id: 1, name: 'Partenaire 1', logo: '/1.png' },
-  { id: 2, name: 'Partenaire 2', logo: '/2.png' },
-  { id: 3, name: 'Partenaire 3', logo: '/3.png' },
-  { id: 4, name: 'Partenaire 4', logo: '/4.png' },
-  { id: 5, name: 'Partenaire 5', logo: '/5.png' },
-  { id: 6, name: 'Partenaire 6', logo: '/6.png' },
-  { id: 7, name: 'Partenaire 7', logo: '/7.png' },
+  { id: 1, name: 'Partenaire 1', logo: '/src/assets/1.png' },
+  { id: 2, name: 'Partenaire 2', logo: '/src/assets/2.png' },
+  { id: 3, name: 'Partenaire 3', logo: '/src/assets/3.png' },
+  { id: 4, name: 'Partenaire 4', logo: '/src/assets/4.png' },
+  { id: 5, name: 'Partenaire 5', logo: '/src/assets/5.png' },
+  { id: 6, name: 'Partenaire 6', logo: '/src/assets/6.png' },
+  { id: 7, name: 'Partenaire 7', logo: '/src/assets/7.png' },
 ];
 
 const PartnersCarousel: React.FC = () => {

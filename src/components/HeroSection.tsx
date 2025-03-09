@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 
 const images = [
-  '/placeholder1.jpg',
-  '/placeholder2.jpg',
-  '/placeholder3.jpg',
-  '/placeholder4.jpg',
-  '/placeholder5.jpg'
+  '/src/assets/placeholder1.jpg',
+  '/src/assets/placeholder2.jpg',
+  '/src/assets/placeholder3.jpg',
+  '/src/assets/placeholder4.jpg',
+  '/src/assets/placeholder5.jpg'
 ];
 
 const HeroSection: React.FC = () => {
