@@ -25,9 +25,13 @@ const ContactForm: React.FC = () => {
   const { toast } = useToast();
   const formRef = useRef<HTMLDivElement>(null);
   const elementsRef = useRef<(HTMLDivElement | null)[]>([]);
-
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(schema),
+    defaultValues: {
+      name: '',
+      email: '',
+      message: ''
+    }
   });
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {

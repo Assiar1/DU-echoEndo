@@ -2,13 +2,13 @@
 import React from 'react';
 
 const partners = [
-  { id: 1, name: 'Partenaire 1', logo: '/src/assets/1.png' },
-  { id: 2, name: 'Partenaire 2', logo: '/src/assets/2.png' },
-  { id: 3, name: 'Partenaire 3', logo: '/src/assets/3.png' },
-  { id: 4, name: 'Partenaire 4', logo: '/src/assets/4.png' },
-  { id: 5, name: 'Partenaire 5', logo: '/src/assets/5.png' },
-  { id: 6, name: 'Partenaire 6', logo: '/src/assets/6.png' },
-  { id: 7, name: 'Partenaire 7', logo: '/src/assets/7.png' },
+  { id: 1, name: 'Partenaire 1', logo: 'https://res.cloudinary.com/dm4klydoj/image/upload/v1741495639/7_y8h3wf.png' },
+  { id: 2, name: 'Partenaire 2', logo: 'https://res.cloudinary.com/dm4klydoj/image/upload/v1741495635/6_qhwvxz.png' },
+  { id: 3, name: 'Partenaire 3', logo: 'https://res.cloudinary.com/dm4klydoj/image/upload/v1741495626/5_g15qnq.png' },
+  { id: 4, name: 'Partenaire 4', logo: 'https://res.cloudinary.com/dm4klydoj/image/upload/v1741495625/3_tdnwfu.png' },
+  { id: 5, name: 'Partenaire 5', logo: 'https://res.cloudinary.com/dm4klydoj/image/upload/v1741495620/4_kwzafn.png' },
+  { id: 6, name: 'Partenaire 6', logo: 'https://res.cloudinary.com/dm4klydoj/image/upload/v1741495620/2_julldw.png' },
+  { id: 7, name: 'Partenaire 7', logo: 'https://res.cloudinary.com/dm4klydoj/image/upload/v1741495619/1_xugyhj.png' },
 ];
 
 const PartnersCarousel: React.FC = () => {

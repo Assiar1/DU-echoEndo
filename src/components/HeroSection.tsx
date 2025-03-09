@@ -3,11 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { ChevronRight } from 'lucide-react';
 
 const images = [
-  '/src/assets/placeholder1.jpg',
-  '/src/assets/placeholder2.jpg',
-  '/src/assets/placeholder3.jpg',
-  '/src/assets/placeholder4.jpg',
-  '/src/assets/placeholder5.jpg'
+  'https://res.cloudinary.com/dm4klydoj/image/upload/v1741495637/placeholder3_kvqfnb.jpg',
+  'https://res.cloudinary.com/dm4klydoj/image/upload/v1741495635/placeholder5_zvgn2g.jpg',
+  'https://res.cloudinary.com/dm4klydoj/image/upload/v1741495631/placeholder2_epalsk.jpg',
+  'https://res.cloudinary.com/dm4klydoj/image/upload/v1741495635/placeholder4_cjbnpi.jpg',
+  'https://res.cloudinary.com/dm4klydoj/image/upload/v1741495633/placeholder1_nt4czn.jpg'
 ];
 
 const HeroSection: React.FC = () => {
