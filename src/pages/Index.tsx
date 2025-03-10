@@ -8,6 +8,7 @@ import VideoSection from '@/components/VideoSection';
 import FoundersCarousel from '@/components/FoundersCarousel';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
+import CommentsCarousel from '@/components/CommentsCaroussel';
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -47,6 +48,7 @@ const Index: React.FC = () => {
         <ProgramHighlights />
         <VideoSection />
         <FoundersCarousel />
+        <CommentsCarousel />
         <ContactForm />
       </main>
       <Footer />

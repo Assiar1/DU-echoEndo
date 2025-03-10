@@ -38,7 +38,7 @@ const ContactForm: React.FC = () => {
     setIsSubmitting(true);
 
     const templateParams = {
-      to_email: 'ilyasassiar98@gmail.com',
+      to_email: 'voiceilyas@gmail.com',
       from_name: data.name,
       from_email: data.email,
       message: data.message,

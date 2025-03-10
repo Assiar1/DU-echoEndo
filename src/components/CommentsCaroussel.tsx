@@ -1,42 +1,47 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star } from 'lucide-react';
 
-const founders = [
+const reviews = [
   {
     id: 1,
-    name: "Pr. Jean Dupont",
-    title: "Professeur en Gastro-entérologie",
-    specialty: "Expert en Endoscopie Thérapeutique",
+    name: "Dr. Jean Martin",
+    title: "Gastro-entérologue",
+    comment: "Une formation exceptionnelle qui m'a permis d'améliorer considérablement mes compétences en endoscopie. L'équipe pédagogique est remarquable.",
+    rating: 5,
     image: "/placeholder.svg"
   },
   {
     id: 2,
-    name: "Pr. Marie Laurent",
-    title: "Professeur en Chirurgie Digestive",
-    specialty: "Spécialiste en Echoendoscopie",
+    name: "Dr. Sophie Bernard",
+    title: "Chirurgienne Digestive",
+    comment: "La qualité de l'enseignement et le matériel mis à disposition sont excellents. Je recommande vivement cette formation à mes collègues.",
+    rating: 5,
     image: "/placeholder.svg"
   },
   {
     id: 3,
-    name: "Dr. Philippe Martin",
-    title: "Maître de Conférences",
-    specialty: "Endoscopie Interventionnelle",
+    name: "Dr. Pierre Dubois",
+    title: "Hépato-gastroentérologue",
+    comment: "Les cas pratiques et les sessions hands-on sont particulièrement enrichissants. Une formation qui répond parfaitement aux besoins des praticiens.",
+    rating: 4,
     image: "/placeholder.svg"
   },
   {
     id: 4,
-    name: "Pr. Sophie Durand",
-    title: "Professeur en Hépato-gastroentérologie",
-    specialty: "Endoscopie Digestive Avancée",
+    name: "Dr. Marie Lambert",
+    title: "Endoscopiste",
+    comment: "J'ai beaucoup apprécié l'approche pédagogique et l'expertise des formateurs. Une expérience très formatrice.",
+    rating: 5,
     image: "/placeholder.svg"
   }
 ];
 
-const FoundersCarousel: React.FC = () => {
+const CommentsCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const maxIndex = Math.max(0, founders.length - (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1));
+  const [isPaused, setIsPaused] = useState(false);
+  const maxIndex = Math.max(0, reviews.length - (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1));
   const sectionRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -67,6 +72,22 @@ const FoundersCarousel: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const autoSlide = setInterval(() => {
+      if (!isPaused && !isAnimating) {
+        if (currentIndex >= maxIndex) {
+          setIsAnimating(true);
+          setCurrentIndex(0);
+          setTimeout(() => setIsAnimating(false), 500);
+        } else {
+          nextSlide();
+        }
+      }
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(autoSlide);
+  }, [currentIndex, isPaused, isAnimating, maxIndex]);
+
   const nextSlide = () => {
     if (isAnimating || currentIndex >= maxIndex) return;
     
@@ -91,15 +112,17 @@ const FoundersCarousel: React.FC = () => {
 
   return (
     <section 
-      id="fondateurs" 
+      id="temoignages" 
       ref={sectionRef}
-      className="section-padding bg-medical-lightest-blue animate-on-scroll"
+      className="section-padding bg-medical-gray animate-on-scroll"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
       <div className="container">
         <div className="section-title">
-          <h2>Les Fondateurs</h2>
+          <h2>Témoignages</h2>
           <p>
-            Notre équipe d'experts reconnus internationalement dans le domaine de l'endoscopie digestive.
+            Ce que nos participants disent de leur expérience de formation.
           </p>
         </div>
 
@@ -141,27 +164,42 @@ const FoundersCarousel: React.FC = () => {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentIndex * (100 / (window.innerWidth >= 1024 ? 3 : window.innerWidth >= 768 ? 2 : 1))}%)` }}
             >
-              {founders.map((founder) => (
+              {reviews.map((review) => (
                 <div 
-                  key={founder.id} 
+                  key={review.id} 
                   className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4"
                 >
-                  <div className="founder-card h-full">
-                    <div className="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-white shadow-md">
-                      <img 
-                        src={founder.image} 
-                        alt={founder.name} 
-                        className="w-full h-full object-cover"
-                      />
+                  <div className="bg-white rounded-xl p-6 shadow-lg h-full">
+                    <div className="flex items-center mb-4">
+                      <div className="w-16 h-16 rounded-full overflow-hidden mr-4 border-2 border-medical-blue">
+                        <img 
+                          src={review.image} 
+                          alt={review.name} 
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-medical-dark-blue">
+                          {review.name}
+                        </h3>
+                        <p className="text-medical-blue text-sm">
+                          {review.title}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-medical-dark-blue mb-1">
-                      {founder.name}
-                    </h3>
-                    <p className="text-medical-blue font-medium mb-1">
-                      {founder.title}
-                    </p>
-                    <p className="text-sm text-medical-dark-gray">
-                      {founder.specialty}
+                    
+                    <div className="flex mb-3">
+                      {[...Array(5)].map((_, index) => (
+                        <Star
+                          key={index}
+                          size={18}
+                          className={index < review.rating ? 'fill-yellow-400 text-yellow-400' : 'text-gray-300'}
+                        />
+                      ))}
+                    </div>
+
+                    <p className="text-medical-dark-gray text-sm italic">
+                      "{review.comment}"
                     </p>
                   </div>
                 </div>
@@ -194,4 +232,4 @@ const FoundersCarousel: React.FC = () => {
   );
 };
 
-export default FoundersCarousel;
+export default CommentsCarousel;
