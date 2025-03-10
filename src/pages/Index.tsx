@@ -9,6 +9,8 @@ import FoundersCarousel from '@/components/FoundersCarousel';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import CommentsCarousel from '@/components/CommentsCaroussel';
+import FaqSection from '@/components/FaqSection';
+import ChatbotButton from '@/components/ChatbotButton';
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -48,10 +50,24 @@ const Index: React.FC = () => {
         <ProgramHighlights />
         <VideoSection />
         <FoundersCarousel />
-        <CommentsCarousel />
-        <ContactForm />
+        
+        {/* FAQ and Contact sections side by side */}
+        <section className="section-padding bg-white">
+          <div className="container">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <div className="lg:pr-4">
+                <ContactForm />
+                
+              </div>
+              <div className="lg:pl-4">
+                <FaqSection />
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
+      <ChatbotButton />
     </div>
   );
 };
